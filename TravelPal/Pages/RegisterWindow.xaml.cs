@@ -15,13 +15,13 @@ namespace TravelPal.Pages
         {
             InitializeComponent();
 
-            // fill Combobox with Both Enums PopulateComboBox()
+
             FillComboBox();
         }
 
         private void FillComboBox()
         {
-            // fill Combobox with Both Enums PopulateComboBox()
+            // fill Combobox with Both Enums FillComboBox()
             cbCountry.ItemsSource = Enum.GetValues(typeof(Country));
         }
 

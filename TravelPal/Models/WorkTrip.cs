@@ -6,8 +6,13 @@ namespace TravelPal.Models
     {
         public string MeetingDetails { get; set; }
 
-        public WorkTrip(string destination, Country countries, int travellers, int travelDays, string MeetingDetails) : base(destination, countries, travellers, travelDays)
+        public WorkTrip(string destination, Country countries, int travellers, string meetingDetails) : base(destination, countries, travellers)
         {
+            Destination = destination;
+            Countries = countries;
+            Travellers = travellers;
+            MeetingDetails = meetingDetails;
+
         }
 
 
@@ -15,7 +20,17 @@ namespace TravelPal.Models
 
         public string GetInfo()
         {
-            return "";
+            string peoplePersons = "";
+
+            if (Travellers < 1)
+            {
+                peoplePersons = "people";
+            }
+            else
+            {
+                peoplePersons = "person";
+            }
+            return $"Going to {Destination} from {Countries}- there are {Travellers} {peoplePersons} travelling | {MeetingDetails} ";
         }
     }
 }

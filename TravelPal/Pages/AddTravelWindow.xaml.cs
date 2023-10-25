@@ -1,16 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using TravelPal.Enums;
+using TravelPal.Models;
 
 namespace TravelPal.Pages
 {
@@ -21,7 +13,42 @@ namespace TravelPal.Pages
     {
         public AddTravelWindow()
         {
+            List < Travel > = new();
             InitializeComponent();
+            FillComboBoxes();
+        }
+
+        private void btnAddTravel_Click(object sender, RoutedEventArgs e)
+        {
+            string City = txtCity.Text;
+            Country country = (Country)cbCountry.SelectedItem;
+            int travellersNo = Int32.Parse(txtTravellersNo.Text);
+            string? tripType = cbTripType.SelectedItem.ToString();
+            bool allInclusive = false;
+
+            if (checkAllInclusive.IsChecked == true)
+            {
+                allInclusive = true;
+
+
+            }
+
+            Travel travel = new(City, country, travellersNo);
+
+        }
+        private void FillComboBoxes()
+        {
+            // fill Combobox with Enum FillComboBox()
+            cbCountry.ItemsSource = Enum.GetValues(typeof(Country));
+
+        }
+
+        private void FillTravelList()
+        {
+            foreach ()
         }
     }
+
+
+
 }

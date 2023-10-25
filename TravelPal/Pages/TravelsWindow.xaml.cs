@@ -22,5 +22,12 @@ namespace TravelPal.Pages
             mainWindow.Show();
             Close();
         }
+
+        private void btnAddTravel_Click(object sender, RoutedEventArgs e)
+        {
+            AddTravelWindow addTravelWindow = new();
+            addTravelWindow.Show();
+            Close();
+        }
     }
 }
