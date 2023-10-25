@@ -32,7 +32,7 @@
         <TextBox Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Background="#F5FFFA" FontWeight="SemiBold" FontSize="20" Height="45" Margin="20 0 20 0" VerticalAlignment="Bottom" Name="txtUsername"/>
         <PasswordBox Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Background="#F5FFFA" FontWeight="SemiBold" FontSize="20" Height="45" Margin="20 0 20 0" VerticalAlignment="Bottom" Name="txtPassword"/>
 
-        <Button Name="btnLogIn" Grid.Column="2" Grid.Row="5" Width=" 150" Height="50" Content="Log In" FontWeight="Bold" FontSize="24" Background="#F5FFFA"/>
+        <Button Name="btnLogIn" Grid.Column="2" Grid.Row="5" Width=" 150" Height="50" Content="Log In" FontWeight="Bold" FontSize="24" Background="#F5FFFA" Click="btnLogIn_Click"/>
         <Button Name="btnRegister" Grid.Column="3" Grid.Row="5" Width=" 150" Height="50" Content="Register" FontWeight="Bold" FontSize="24" Background="#F5FFFA" Click="btnRegister_Click"/>
     </Grid>
 </Window>
