@@ -47,6 +47,10 @@ namespace TravelPal
                     if (user.Password == password && user.Username == username)
                     {
                         Repos.UserManager.SignedInUser = user;
+
+                        TravelsWindow travelsWindow = new(user);
+                        travelsWindow.Show();
+                        Close();
                         break;
 
                     }

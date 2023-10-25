@@ -1,38 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Windows;
 using TravelPal.Enums;
 using TravelPal.Interfaces;
-using TravelPal.Models;
 
 namespace TravelPal.Repos
 {
-    class UserManager
+    public static class UserManager
     {
         public static List<IUser> Users { get; set; } = new List<IUser>() { new Admin("admin", "password"), new User("user", "password", Country.Thailand) };
         public static IUser? SignedInUser { get; set; }
 
 
 
-        public bool AddUser(IUser user)
+        public static bool AddUser(IUser user)
         {
             if (ValidateUsername(user.Username))
             {
                 Users.Add(user);
+                return true;
             }
-            return true;
+            MessageBox.Show("That is not a valid username");
+            return false;
+
         }
 
-        public void RemoveUser(IUser user)
+        public static void RemoveUser(IUser user)
         {
 
         }
 
-        public bool UpdateUsername(IUser user, string username)
+        public static bool UpdateUsername(IUser user, string username)
         {
             return true;
         }
 
-        private bool ValidateUsername(string username)
+        private static bool ValidateUsername(string username)
         {
             foreach (var user in Users)
             {
@@ -44,7 +46,7 @@ namespace TravelPal.Repos
             return true;
         }
 
-        public bool SignInUser(string username, string password)
+        public static bool SignInUser(string username, string password)
         {
             return true;
         }
@@ -53,46 +55,6 @@ namespace TravelPal.Repos
 
 
 
-        public class User : IUser
-        {
-            public string Username { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-            public string Password { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-            public Country Location { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-            public EuropeanCountry LocationEU { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
-            public User(string username, string password, Country location)
-            {
-                Username = username;
-                Password = password;
-                Location = location;
-
-            }
-
-            public User(string username, string password, EuropeanCountry location)
-            {
-                Username = username;
-                Password = password;
-                LocationEU = location;
-            }
-
-
-
-        }
-
-
-
-        public class Admin : IUser
-        {
-            public List<Travel> Travels { get; set; }
-            public string Username { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-            public string Password { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-            public Country Location { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
-            public Admin(string username, string password)
-            {
-                Username = username;
-                Password = password;
-            }
-        }
     }
 }

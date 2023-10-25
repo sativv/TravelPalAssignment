@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows;
 using TravelPal.Enums;
+using TravelPal.Interfaces;
+using TravelPal.Repos;
 
 namespace TravelPal.Pages
 {
@@ -14,10 +16,10 @@ namespace TravelPal.Pages
             InitializeComponent();
 
             // fill Combobox with Both Enums PopulateComboBox()
-            PopulateComboBox();
+            FillComboBox();
         }
 
-        private void PopulateComboBox()
+        private void FillComboBox()
         {
             // fill Combobox with Both Enums PopulateComboBox()
             cbCountry.ItemsSource = Enum.GetValues(typeof(Country));
@@ -29,19 +31,39 @@ namespace TravelPal.Pages
 
             // Read textboxes
 
-            string username = "";
-            string password = "";
-            Country location = (Country)cbCountry.SelectedValue;
-            // create User and add to UserManager
-            //UserManager.AddUser();
-            // warning if username already exists
-            if (txtPassword.Password == "" || txtUsername.Text == "")
+
+
+            if (txtUsername.Text == "")
             {
-                MessageBox.Show("Please fill all fields", "Warning!");
+                MessageBox.Show("Please enter a username");
+                return;
             }
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
-            Close();
+            else if (txtPassword.Password == "")
+            {
+                MessageBox.Show("Please enter a password");
+                return;
+            }
+            else if (cbCountry.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a country");
+                return;
+            }
+
+            string username = txtUsername.Text;
+            string password = txtPassword.Password;
+            Country location = (Country)cbCountry.SelectedValue;
+            if (UserManager.AddUser(new User(username, password, location)))
+            {
+
+                // Prompt successful login
+                MessageBox.Show("User Created! Welcome to TravelPal", "Success");
+                // return to login window
+                MainWindow mainWindow1 = new MainWindow();
+                mainWindow1.Show();
+                Close();
+
+            }
         }
+
     }
 }
