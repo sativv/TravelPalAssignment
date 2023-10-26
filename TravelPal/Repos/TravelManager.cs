@@ -3,16 +3,16 @@ using TravelPal.Models;
 
 namespace TravelPal.Repos
 {
-    public interface TravelManager
+    public static class TravelManager
     {
-        public List<Travel> Travels { get; set; }
+        public static List<Travel> Travels { get; set; } = new List<Travel>() { new WorkTrip("Bangkok", Enums.Country.Thailand, 2, "Business Meeting"), new Vacation("Helsingborg", Enums.Country.Sweden, 1, true) };
 
-        public void addTravel(Travel travel)
+        public static void addTravel(Travel travel)
         {
             Travels.Add(travel);
         }
 
-        public void removeTravel(Travel travel)
+        public static void removeTravel(Travel travel)
         {
             Travels.Remove(travel);
         }

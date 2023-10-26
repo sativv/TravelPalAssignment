@@ -46,8 +46,12 @@ namespace TravelPal.Repos
             return true;
         }
 
-        public static bool SignInUser(string username, string password)
+        public static bool SignInUser(string username)
         {
+            if (!ValidateUsername(username))
+            {
+                return false;
+            }
             return true;
         }
 

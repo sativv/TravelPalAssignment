@@ -49,6 +49,8 @@ namespace TravelPal.Pages
                 return;
             }
 
+
+
             string username = txtUsername.Text;
             string password = txtPassword.Password;
             Country location = (Country)cbCountry.SelectedValue;

@@ -1,4 +1,6 @@
 ﻿using TravelPal.Enums;
+using TravelPal.Interfaces;
+using TravelPal.Repos;
 
 namespace TravelPal.Models
 {
@@ -7,6 +9,9 @@ namespace TravelPal.Models
         public string Destination { get; set; }
         public Country Countries { get; set; }
         public int Travellers { get; set; }
+
+        // set default trip owner to User(1) 
+        public User OwnedUser { get; set; } = (User)UserManager.Users[1];
         //public List<PackingListItem> PackingList { get; 
 
 
@@ -15,6 +20,12 @@ namespace TravelPal.Models
             Destination = destination;
             Countries = countries;
             Travellers = travellers;
+
+            if (UserManager.SignedInUser != null)
+            {
+                OwnedUser = (User)UserManager.SignedInUser;
+            }
+
 
         }
 

@@ -24,7 +24,6 @@
             <RowDefinition/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
-
         <Label Content="TravelPal" FontSize="36" FontWeight="UltraBold" Foreground="#F5FFFA" FontFamily="arial" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="center" />
         <Label Content="Username" FontSize="24" FontWeight="UltraBold" Foreground="#F5FFFA" FontFamily="arial" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="center" />
         <Label Content="Password" FontSize="24" FontWeight="UltraBold" Foreground="#F5FFFA" FontFamily="arial" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="center" />

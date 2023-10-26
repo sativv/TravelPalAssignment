@@ -26,13 +26,13 @@
 
         <Label Name="lblUsername" FontSize="20" FontWeight="Bold" Foreground="#F5FFFA" Grid.Column="1" Grid.Row="1" Content="username"/>
 
-        <Button Width="125" Height="50" Grid.Column="2" Grid.Row="4" Background="#F5FFFA" Content="Add Travel" Foreground="#7B68EE" FontWeight="SemiBold" FontSize="20" Name="btnAddTravel"/>
+        <Button Width="125" Height="50" Grid.Column="2" Grid.Row="4" Background="#F5FFFA" Content="Add Travel" Foreground="#7B68EE" FontWeight="SemiBold" FontSize="20" Name="btnAddTravel" Click="btnAddTravel_Click"/>
         <Button Width="80" Height="35" Grid.Column="1" Grid.Row="4"  Content="Need Help?" Foreground="#F5FFFA" FontWeight="SemiBold" FontSize="14" HorizontalAlignment="right" VerticalAlignment="bottom" Background="Transparent" Name="btnHelp"/>
         <Button Width="80" Height="35" Grid.Column="1" Grid.Row="4"  Content="Sign Out" Foreground="Red" FontWeight="SemiBold" FontSize="14" HorizontalAlignment="left" VerticalAlignment="bottom" Background="Transparent" Name="btnSignOut" Click="btnSignOut_Click"/>
-        <Button Width="125" Height="50" Grid.Column="3" Grid.Row="4" Background="#F5FFFA" Content="Details" Foreground="#7B68EE" FontWeight="SemiBold" FontSize="20" Name="btnDetails" IsEnabled="False"/>
+        <Button Width="125" Height="50" Grid.Column="3" Grid.Row="4" Background="#F5FFFA" Content="Details" Foreground="#7B68EE" FontWeight="SemiBold" FontSize="20" Name="btnDetails" IsEnabled="False" Click="btnDetails_Click"/>
         <Button Width="125" Height="50" Grid.Column="4" Grid.Row="4" Background="#F5FFFA" Content="Remove" Foreground="#7B68EE" FontWeight="SemiBold" FontSize="20" Name="btnRemove" IsEnabled="False"/>
         
 
-        <ListView Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="3"/>
+        <ListView Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="3" Name="lstTravelList" SelectionChanged="lstTravelList_SelectionChanged"/>
     </Grid>
 </Window>

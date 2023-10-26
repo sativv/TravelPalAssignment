@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
+using TravelPal.Models;
 
 namespace TravelPal.Pages
 {
@@ -19,9 +8,27 @@ namespace TravelPal.Pages
     /// </summary>
     public partial class TravelDetailsWindow : Window
     {
-        public TravelDetailsWindow()
+        public TravelDetailsWindow(Travel travel)
         {
             InitializeComponent();
+
+            // figure out why this does not work
+            txtCity.Text = travel.Destination.ToString();
+            txtTravellersNo.Text = travel.Travellers.ToString();
+            cbCountry.Text = travel.Countries.ToString();
+            cbTripType.Text = travel.GetType().Name;
+
+            if (travel.GetType().Name == "Worktrip")
+            {
+                txtMeetingDetails.Visibility = Visibility.Visible;
+                lblMeetingDetails.Visibility = Visibility.Visible;
+
+            }
+        }
+
+        private void btnReturn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

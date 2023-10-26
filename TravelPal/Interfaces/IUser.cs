@@ -21,6 +21,8 @@ namespace TravelPal.Interfaces
         public string Password { get; set; }
         public Country Location { get; set; }
 
+        public List<Travel> userTravels { get; set; }
+
         public User(string username, string password, Country location)
         {
             Username = username;

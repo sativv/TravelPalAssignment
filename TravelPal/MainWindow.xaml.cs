@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using TravelPal.Interfaces;
 using TravelPal.Pages;
+using TravelPal.Repos;
 
 namespace TravelPal
 {
@@ -30,6 +31,13 @@ namespace TravelPal
 
             string password = txtPassword.Password;
             string username = txtUsername.Text;
+
+
+
+            if (UserManager.SignInUser(username))
+            {
+                MessageBox.Show("Please enter a valid username", "WARNING!");
+            }
 
             if (string.IsNullOrEmpty(password))
             {
