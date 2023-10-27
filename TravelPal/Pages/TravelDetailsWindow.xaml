@@ -31,13 +31,13 @@
     <Label Content="All Inclusive" FontSize="20" Foreground="#F5FFFA" FontWeight="SemiBold" Grid.Row="1" Grid.Column="4"  Margin="0 15 0 0"/>
     <Label Content="Packing List" FontSize="20" Foreground="#F5FFFA" FontWeight="SemiBold" Grid.Row="2" Grid.Column="3" VerticalAlignment="Bottom"  Margin="0 15 0 0"/>
 
-    <CheckBox Name="checkAllInclusive" Grid.Row="1" Grid.Column="4" VerticalAlignment="center" HorizontalAlignment="center"/>
+        <CheckBox Name="checkAllInclusive" Grid.Row="1" Grid.Column="4" VerticalAlignment="center" HorizontalAlignment="center" IsEnabled="False"/>
 
-    <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" Height="50"  VerticalAlignment="Bottom" Name="txtCity" Margin="12 0 0 0"/>
-    <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1" Height="50"  VerticalAlignment="Bottom" Name="cbCountry" Margin="12 0 0 0"/>
-    <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1" Height="50"  VerticalAlignment="Bottom" Name="txtTravellersNo" Margin="12 0 0 0"/>
-    <TextBox Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Height="50"  VerticalAlignment="Bottom" Name="txtMeetingDetails" Margin="12 0 0 0"  Visibility="Hidden"/>
-        <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="1" Height="50"  VerticalAlignment="Bottom" Name="cbTripType" Margin="12 0 0 0" />
+        <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" Height="50"  VerticalAlignment="Bottom" Name="txtCity" Margin="12 0 0 0" IsReadOnly="True" FontWeight="SemiBold" FontSize="18" TextAlignment="Center"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1" Height="50"  VerticalAlignment="Bottom" Name="cbCountry" Margin="12 0 0 0" IsReadOnly="True" FontWeight="SemiBold" FontSize="18" TextAlignment="Center"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1" Height="50"  VerticalAlignment="Bottom" Name="txtTravellersNo" Margin="12 0 0 0" IsReadOnly="True" FontWeight="SemiBold" FontSize="18" TextAlignment="Center"/>
+        <TextBox Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Height="50"  VerticalAlignment="Bottom" Name="txtMeetingDetails" Margin="12 0 0 0"  Visibility="Hidden" IsReadOnly="True" FontWeight="SemiBold" FontSize="18" TextAlignment="Center"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="1" Height="50"  VerticalAlignment="Bottom" Name="cbTripType" Margin="12 0 0 0"  IsReadOnly="True" FontWeight="SemiBold" FontSize="18" TextAlignment="Center"/>
 
 
 

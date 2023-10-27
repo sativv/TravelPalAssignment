@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Controls;
 using TravelPal.Enums;
 using TravelPal.Interfaces;
 using TravelPal.Models;
@@ -14,6 +15,7 @@ namespace TravelPal.Pages
     public partial class AddTravelWindow : Window
     {
         List<string> travelSubclasses = new List<string> { "Vacation", "Worktrip" };
+        public List<IPackingListItem> PackingList { get; set; } = new List<IPackingListItem>();
         public AddTravelWindow()
         {
 
@@ -35,11 +37,22 @@ namespace TravelPal.Pages
             if (txtCity.Text == "" || cbCountry.SelectedIndex == -1 || txtTravellersNo.Text == "" || cbTripType.SelectedIndex == -1)
             {
                 MessageBox.Show("You are required to fill all fields!", "WARNING!");
+                return;
             }
-
+            int travellersNo;
             string City = txtCity.Text;
             Country country = (Country)cbCountry.SelectedItem;
-            int travellersNo = Int32.Parse(txtTravellersNo.Text);
+            try
+            {
+                travellersNo = Int32.Parse(txtTravellersNo.Text);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Number of travellers must be a number");
+                return;
+            }
+
+
             string? tripType = cbTripType.SelectedItem.ToString();
             bool allInclusive = false;
             string? meetingDetails = txtMeetingDetails.Text;
@@ -58,13 +71,13 @@ namespace TravelPal.Pages
 
             if (cbTripType.SelectedIndex == 1)
             {
-                WorkTrip newWorkTrip = new(City, country, travellersNo, meetingDetails, (User)UserManager.SignedInUser);
+                WorkTrip newWorkTrip = new(City, country, travellersNo, meetingDetails, (User)UserManager.SignedInUser, PackingList);
                 TravelManager.Travels.Add(newWorkTrip);
                 ReturnWindow();
             }
             else if (cbTripType.SelectedIndex == 0)
             {
-                Vacation newVacaton = new(City, country, travellersNo, allInclusive, (User)UserManager.SignedInUser);
+                Vacation newVacaton = new(City, country, travellersNo, allInclusive, (User)UserManager.SignedInUser, PackingList);
                 TravelManager.Travels.Add(newVacaton);
                 ReturnWindow();
 
@@ -141,13 +154,95 @@ namespace TravelPal.Pages
 
         private void cbCountry_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
+            bool isEuropeanCitizen = false;
+            bool isDestinationEu = false;
+            TravelDocument passPort;
+            Country destination = (Country)cbCountry.SelectedValue;
+            lstPackingList.Items.Clear();
+            PackingList.Clear();
             foreach (var country in Enum.GetValues(typeof(EuropeanCountry)))
             {
+
                 if (UserManager.SignedInUser.Location == (Country)country)
                 {
+                    isEuropeanCitizen = true;
+                    break;
+                }
 
+
+
+            }
+            foreach (var country in Enum.GetValues(typeof(EuropeanCountry)))
+            {
+                if (destination.ToString() == country.ToString())
+                {
+                    isDestinationEu = true;
+                    break;
                 }
             }
+
+            if (isEuropeanCitizen)
+            {
+                if (isDestinationEu)
+                {
+
+                    passPort = new("Passport", false);
+                }
+                else
+                {
+                    passPort = new("Passport", true);
+                }
+
+            }
+            else
+            {
+                passPort = new("Passport", true);
+            }
+
+
+
+            PackingList.Add(passPort);
+            ListViewItem passPortListItem = new ListViewItem();
+            passPortListItem.Tag = passPort;
+            passPortListItem.Content = passPort.GetInfo();
+            lstPackingList.Items.Add(passPortListItem);
+        }
+
+        private void btnAddItem_Click(object sender, RoutedEventArgs e)
+        {
+            string newItem = txtNewItem.Text;
+            IPackingListItem packingListItem = null;
+            bool isRequired = false;
+            if (checkTravelDocumentRequired.IsChecked == true)
+            {
+                isRequired = true;
+            }
+
+            if (checkTravelDocument.IsChecked == true)
+            {
+                TravelDocument newTravelDocument = new(newItem, isRequired);
+                packingListItem = newTravelDocument;
+                PackingList.Add(newTravelDocument);
+            }
+            else
+            {
+                OtherItem newOtherItem = new(newItem);
+                packingListItem = newOtherItem;
+                PackingList.Add(newOtherItem);
+            }
+            ListViewItem newItemList = new ListViewItem();
+            newItemList.Tag = packingListItem;
+            newItemList.Content = packingListItem.GetInfo();
+            lstPackingList.Items.Add(newItemList);
+
+
+        }
+
+        private void btnReturn_Click(object sender, RoutedEventArgs e)
+        {
+            TravelsWindow travelsWindow = new(UserManager.SignedInUser);
+            travelsWindow.Show();
+            Close();
         }
     }
 

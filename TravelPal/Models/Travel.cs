@@ -13,14 +13,15 @@ namespace TravelPal.Models
         // set default trip owner to User(1) 
         //public User OwnedUser { get; set; } = (User)UserManager.Users[1];
         public User OwnedUser { get; set; }
-        public List<IPackingListItem> packingList { get; set; }
+        public List<IPackingListItem> PackingList { get; set; }
 
-        public Travel(string destination, Country countries, int travellers, User ownedUser)
+        public Travel(string destination, Country countries, int travellers, User ownedUser, List<IPackingListItem> packingList)
         {
             Destination = destination;
             Countries = countries;
             Travellers = travellers;
             OwnedUser = ownedUser;
+            PackingList = packingList;
 
 
 

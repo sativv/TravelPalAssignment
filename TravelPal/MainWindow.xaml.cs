@@ -45,15 +45,11 @@ namespace TravelPal
             {
                 MessageBox.Show("Please enter a password");
             }
-            else if (string.IsNullOrEmpty(username))
-            {
-                MessageBox.Show("Please enter a username");
-
-            }
             else if (!string.IsNullOrEmpty(password) && !string.IsNullOrEmpty(username))
             {
                 foreach (IUser user in Repos.UserManager.Users)
                 {
+
                     if (user.Password == password && user.Username == username)
                     {
                         Repos.UserManager.SignedInUser = user;
@@ -64,6 +60,10 @@ namespace TravelPal
                         break;
 
                     }
+                }
+                if (Repos.UserManager.SignedInUser == null)
+                {
+                    MessageBox.Show("Incorrect password", "Warning!");
                 }
             }
         }

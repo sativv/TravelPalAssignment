@@ -1,4 +1,5 @@
-﻿using TravelPal.Enums;
+﻿using System.Collections.Generic;
+using TravelPal.Enums;
 using TravelPal.Interfaces;
 
 namespace TravelPal.Models
@@ -6,8 +7,9 @@ namespace TravelPal.Models
     public class WorkTrip : Travel
     {
         public string MeetingDetails { get; set; }
+        public List<IPackingListItem> PackingList { get; set; } = new List<IPackingListItem>();
 
-        public WorkTrip(string destination, Country countries, int travellers, string meetingDetails, User ownedUser) : base(destination, countries, travellers, ownedUser)
+        public WorkTrip(string destination, Country countries, int travellers, string meetingDetails, User ownedUser, List<IPackingListItem> packingList) : base(destination, countries, travellers, ownedUser, packingList)
         {
             Destination = destination;
             Countries = countries;
