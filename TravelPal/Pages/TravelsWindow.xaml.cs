@@ -17,6 +17,10 @@ namespace TravelPal.Pages
             FillTravelList();
             lblUsername.Content = user.Username;
 
+
+
+
+
         }
 
         private void btnSignOut_Click(object sender, RoutedEventArgs e)
@@ -65,30 +69,36 @@ namespace TravelPal.Pages
 
         private void btnDetails_Click(object sender, RoutedEventArgs e)
         {
+            if (lstTravelList.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a trip first");
+                return;
+            }
             ListViewItem listViewItemToEdit = (ListViewItem)lstTravelList.SelectedItem;
             TravelDetailsWindow detailsWindow = new TravelDetailsWindow((Travel)listViewItemToEdit.Tag, UserManager.SignedInUser);
             detailsWindow.Show();
             Close();
         }
 
-        private void lstTravelList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
-            btnRemove.IsEnabled = true;
-            btnDetails.IsEnabled = true;
-
-
-
-        }
 
         private void btnRemove_Click(object sender, RoutedEventArgs e)
         {
+            if (lstTravelList.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a trip first");
+                return;
+            }
 
-            // Why does this not work?
             ListViewItem selectedItem = (ListViewItem)lstTravelList.SelectedItem;
             TravelManager.Travels.Remove((Travel)selectedItem.Tag);
             FillTravelList();
 
+        }
+
+        private void btnHelp_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Select a trip in the list on the right and press Details in order to view all of the trip details, or press Remove to remove the selected trip. You can also press Add Travel to create a new trip. Press Sign Out to go back to the login screen");
         }
     }
 }
