@@ -37,6 +37,8 @@ namespace TravelPal
             if (UserManager.SignInUser(username))
             {
                 MessageBox.Show("Please enter a valid username", "WARNING!");
+                txtPassword.Password = "";
+                txtUsername.Text = "";
             }
 
             if (string.IsNullOrEmpty(password))

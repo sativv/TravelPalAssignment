@@ -1,16 +1,18 @@
 ﻿using TravelPal.Enums;
+using TravelPal.Interfaces;
 
 namespace TravelPal.Models
 {
     class Vacation : Travel
     {
         public bool AllInclusive { get; set; } = false;
-        public Vacation(string destination, Country countries, int travellers, bool allInclusive) : base(destination, countries, travellers)
+        public Vacation(string destination, Country countries, int travellers, bool allInclusive, User ownedUser) : base(destination, countries, travellers, ownedUser)
         {
             Destination = destination;
             Countries = countries;
             Travellers = travellers;
             AllInclusive = allInclusive;
+
         }
 
 

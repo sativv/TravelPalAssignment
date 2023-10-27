@@ -37,22 +37,36 @@ namespace TravelPal.Pages
 
         private void FillTravelList()
         {
+            lstTravelList.Items.Clear();
+
             foreach (Travel travel in TravelManager.Travels)
             {
 
+                if (travel.OwnedUser.Username == UserManager.SignedInUser.Username)
+                {
 
-                ListViewItem listViewItem = new ListViewItem();
-                listViewItem.Tag = travel;
-                listViewItem.Content = "Destination - " + travel.Countries.ToString();
-                lstTravelList.Items.Add(listViewItem);
+                    ListViewItem listViewItem = new ListViewItem();
+                    listViewItem.Tag = travel;
+                    listViewItem.Content = "Destination - " + travel.Countries.ToString() + " - " + travel.GetType().Name;
+                    lstTravelList.Items.Add(listViewItem);
+                }
+                else if (UserManager.SignedInUser is Admin)
+                {
+                    ListViewItem listViewItem = new ListViewItem();
+                    listViewItem.Tag = travel;
+                    listViewItem.Content = "Destination - " + travel.Countries.ToString() + " - " + travel.GetType().Name + " - " + travel.OwnedUser.Username;
+                    lstTravelList.Items.Add(listViewItem);
+                }
+
+
 
             }
         }
 
         private void btnDetails_Click(object sender, RoutedEventArgs e)
         {
-
-            TravelDetailsWindow detailsWindow = new TravelDetailsWindow((Travel)lstTravelList.Tag);
+            ListViewItem listViewItemToEdit = (ListViewItem)lstTravelList.SelectedItem;
+            TravelDetailsWindow detailsWindow = new TravelDetailsWindow((Travel)listViewItemToEdit.Tag, UserManager.SignedInUser);
             detailsWindow.Show();
             Close();
         }
@@ -64,6 +78,16 @@ namespace TravelPal.Pages
             btnDetails.IsEnabled = true;
 
 
+
+        }
+
+        private void btnRemove_Click(object sender, RoutedEventArgs e)
+        {
+
+            // Why does this not work?
+            ListViewItem selectedItem = (ListViewItem)lstTravelList.SelectedItem;
+            TravelManager.Travels.Remove((Travel)selectedItem.Tag);
+            FillTravelList();
 
         }
     }

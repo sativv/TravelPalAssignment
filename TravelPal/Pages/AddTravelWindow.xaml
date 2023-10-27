@@ -24,25 +24,43 @@
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
         <Label Content="City" FontSize="20" Foreground="#F5FFFA" FontWeight="SemiBold" Grid.Row="1" Grid.Column="1" Margin="0 15 0 0"/>
+        <Label Content="New Item" FontSize="20" Foreground="#F5FFFA" FontWeight="SemiBold" Grid.Row="1" Grid.Column="3" Margin="0 15 0 0"/>
+        <Label Content="Travel Document?" FontSize="20" Foreground="#F5FFFA" FontWeight="SemiBold" Grid.Row="2" Grid.Column="3" Margin="0 0 0 0"/>
+        <Label Content="Required" FontSize="20" Foreground="Red" FontWeight="SemiBold" Grid.Row="2" Grid.Column="4" Margin="0 0 0 0" Visibility="Hidden" Name="lblRequired"/>
         <Label Content="Country" FontSize="20" Foreground="#F5FFFA" FontWeight="SemiBold" Grid.Row="2" Grid.Column="1" Margin="0 15 0 0"/>
         <Label Name="lblMeetingDetails" Content="Meeting Details" FontSize="20" Foreground="#F5FFFA" FontWeight="SemiBold" Grid.Row="1" Grid.Column="2" Margin="0 15 0 0" Visibility="Hidden"/>
         <Label Content="# of travellers" FontSize="20" Foreground="#F5FFFA" FontWeight="SemiBold" Grid.Row="3" Grid.Column="1"  Margin="0 15 0 0"/>
         <Label Content="Type of Trip" FontSize="20" Foreground="#F5FFFA" FontWeight="SemiBold" Grid.Row="4" Grid.Column="1"  Margin="0 15 0 0"/>
-        <Label Content="All Inclusive" FontSize="20" Foreground="#F5FFFA" FontWeight="SemiBold" Grid.Row="1" Grid.Column="4"  Margin="0 15 0 0"/>
+        <Label Content="All Inclusive" FontSize="20" Foreground="#F5FFFA" FontWeight="SemiBold" Grid.Row="1" Grid.Column="2"  Margin="0 15 0 0"  Name="lblAllInclusive" Visibility="Hidden"/>
         <Label Content="Packing List" FontSize="20" Foreground="#F5FFFA" FontWeight="SemiBold" Grid.Row="2" Grid.Column="3" VerticalAlignment="Bottom"  Margin="0 15 0 0"/>
 
-        <CheckBox Name="checkAllInclusive" Grid.Row="1" Grid.Column="4" VerticalAlignment="center" HorizontalAlignment="center"/>
+        <CheckBox Name="checkAllInclusive" Grid.Row="1" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20 0 0 0" Visibility="Hidden">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="2" ScaleY="2"/>
+            </CheckBox.LayoutTransform>
+        </CheckBox>
 
         <TextBox Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" Height="50"  VerticalAlignment="Bottom" Name="txtCity" Margin="12 0 0 0"/>
+        <TextBox Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="1" Height="50"  VerticalAlignment="Bottom" Name="txtNewItem" Margin="12 0 0 0"/>
         <ComboBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="1" Height="50"  VerticalAlignment="Bottom" Name="cbCountry" Margin="12 0 0 0"/>
         <TextBox Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1" Height="50"  VerticalAlignment="Bottom" Name="txtTravellersNo" Margin="12 0 0 0"/>
         <TextBox Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Height="50"  VerticalAlignment="Bottom" Name="txtMeetingDetails" Margin="12 0 0 0"  Visibility="Hidden"/>
         <ComboBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="1" Height="50"  VerticalAlignment="Bottom" Name="cbTripType" Margin="12 0 0 0" SelectionChanged="cbTripType_SelectionChanged"/>
 
-
+        <CheckBox Name="checkTravelDocument" Grid.Row="2" Grid.Column="3" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20 0 0 40" Checked="checkTravelDocument_Checked" Unchecked="checkTravelDocument_Unchecked">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="2" ScaleY="2"/>
+            </CheckBox.LayoutTransform>
+        </CheckBox>
+        <CheckBox Name="checkTravelDocumentRequired" Grid.Row="2" Grid.Column="4" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="20 0 0 40" Visibility="Hidden">
+            <CheckBox.LayoutTransform>
+                <ScaleTransform ScaleX="2" ScaleY="2"/>
+            </CheckBox.LayoutTransform>
+        </CheckBox>
 
         <ListView Name="lstPackingList" Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2" Grid.RowSpan="2"  Margin="12 0 0 0"/>
         <Button Name="btnAddTravel" Grid.Column="2" Grid.Row="4" Width="125" Height="45" VerticalAlignment="Bottom" Background="#F5FFFA" Foreground="#7B68EE" Content="Add Trip" FontSize="20"  FontWeight="Semibold" Click="btnAddTravel_Click"/>
+        <Button Name="btnAddItem" Grid.Column="4" Grid.Row="1" Width="125" Height="45" VerticalAlignment="Bottom" Background="#F5FFFA" Foreground="#7B68EE" Content="Add Trip" FontSize="20"  FontWeight="Semibold" Click="btnAddTravel_Click"/>
     </Grid>
 
 </Window>

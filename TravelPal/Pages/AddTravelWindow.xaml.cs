@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows;
 using TravelPal.Enums;
+using TravelPal.Interfaces;
 using TravelPal.Models;
 using TravelPal.Repos;
 
@@ -18,6 +19,10 @@ namespace TravelPal.Pages
 
             InitializeComponent();
             FillComboBoxes();
+
+
+
+
 
 
 
@@ -53,13 +58,13 @@ namespace TravelPal.Pages
 
             if (cbTripType.SelectedIndex == 1)
             {
-                WorkTrip newWorkTrip = new(City, country, travellersNo, meetingDetails);
+                WorkTrip newWorkTrip = new(City, country, travellersNo, meetingDetails, (User)UserManager.SignedInUser);
                 TravelManager.Travels.Add(newWorkTrip);
                 ReturnWindow();
             }
-            else if (cbTripType.SelectedIndex == 2)
+            else if (cbTripType.SelectedIndex == 0)
             {
-                Vacation newVacaton = new(City, country, travellersNo, allInclusive);
+                Vacation newVacaton = new(City, country, travellersNo, allInclusive, (User)UserManager.SignedInUser);
                 TravelManager.Travels.Add(newVacaton);
                 ReturnWindow();
 
@@ -85,11 +90,22 @@ namespace TravelPal.Pages
             {
                 lblMeetingDetails.Visibility = Visibility.Visible;
                 txtMeetingDetails.Visibility = Visibility.Visible;
+                lblAllInclusive.Visibility = Visibility.Hidden;
+                checkAllInclusive.Visibility = Visibility.Hidden;
+            }
+            else if (cbTripType.SelectedIndex == 0)
+            {
+                lblAllInclusive.Visibility = Visibility.Visible;
+                checkAllInclusive.Visibility = Visibility.Visible;
+                lblMeetingDetails.Visibility = Visibility.Hidden;
+                txtMeetingDetails.Visibility = Visibility.Hidden;
             }
             else
             {
                 lblMeetingDetails.Visibility = Visibility.Hidden;
                 txtMeetingDetails.Visibility = Visibility.Hidden;
+                lblAllInclusive.Visibility = Visibility.Hidden;
+                checkAllInclusive.Visibility = Visibility.Hidden;
             }
 
 
@@ -107,6 +123,31 @@ namespace TravelPal.Pages
             TravelsWindow travelsWindow = new(UserManager.SignedInUser);
             travelsWindow.Show();
             Close();
+        }
+
+        private void checkTravelDocument_Checked(object sender, RoutedEventArgs e)
+        {
+
+            checkTravelDocumentRequired.Visibility = Visibility.Visible;
+            lblRequired.Visibility = Visibility.Visible;
+
+        }
+
+        private void checkTravelDocument_Unchecked(object sender, RoutedEventArgs e)
+        {
+            checkTravelDocumentRequired.Visibility = Visibility.Hidden;
+            lblRequired.Visibility = Visibility.Hidden;
+        }
+
+        private void cbCountry_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            foreach (var country in Enum.GetValues(typeof(EuropeanCountry)))
+            {
+                if (UserManager.SignedInUser.Location == (Country)country)
+                {
+
+                }
+            }
         }
     }
 

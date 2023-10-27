@@ -1,4 +1,5 @@
 ﻿using TravelPal.Enums;
+using TravelPal.Interfaces;
 
 namespace TravelPal.Models
 {
@@ -6,7 +7,7 @@ namespace TravelPal.Models
     {
         public string MeetingDetails { get; set; }
 
-        public WorkTrip(string destination, Country countries, int travellers, string meetingDetails) : base(destination, countries, travellers)
+        public WorkTrip(string destination, Country countries, int travellers, string meetingDetails, User ownedUser) : base(destination, countries, travellers, ownedUser)
         {
             Destination = destination;
             Countries = countries;

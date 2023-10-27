@@ -1,5 +1,7 @@
 ﻿using System.Windows;
+using TravelPal.Interfaces;
 using TravelPal.Models;
+using TravelPal.Repos;
 
 namespace TravelPal.Pages
 {
@@ -8,9 +10,13 @@ namespace TravelPal.Pages
     /// </summary>
     public partial class TravelDetailsWindow : Window
     {
-        public TravelDetailsWindow(Travel travel)
+
+
+        public TravelDetailsWindow(Travel travel, IUser user)
         {
+
             InitializeComponent();
+
 
             // figure out why this does not work
             txtCity.Text = travel.Destination.ToString();
@@ -28,7 +34,9 @@ namespace TravelPal.Pages
 
         private void btnReturn_Click(object sender, RoutedEventArgs e)
         {
-
+            TravelsWindow travelsWindow = new(UserManager.SignedInUser);
+            travelsWindow.Show();
+            Close();
         }
     }
 }
