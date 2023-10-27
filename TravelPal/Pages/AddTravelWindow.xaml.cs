@@ -46,7 +46,7 @@ namespace TravelPal.Pages
             {
                 travellersNo = Int32.Parse(txtTravellersNo.Text);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Number of travellers must be a number");
                 return;
@@ -124,12 +124,6 @@ namespace TravelPal.Pages
 
         }
 
-        //private void ClearFields()
-        //{
-        //    txtCity.Text = "";
-        //    txtMeetingDetails.Text = "";
-        //    txtTravellersNo.Text = "";
-        //}
 
         private void ReturnWindow()
         {
@@ -223,6 +217,7 @@ namespace TravelPal.Pages
                 TravelDocument newTravelDocument = new(newItem, isRequired);
                 packingListItem = newTravelDocument;
                 PackingList.Add(newTravelDocument);
+
             }
             else
             {
@@ -234,7 +229,9 @@ namespace TravelPal.Pages
             newItemList.Tag = packingListItem;
             newItemList.Content = packingListItem.GetInfo();
             lstPackingList.Items.Add(newItemList);
-
+            txtNewItem.Text = "";
+            checkTravelDocumentRequired.IsChecked = false;
+            checkTravelDocument.IsChecked = false;
 
         }
 

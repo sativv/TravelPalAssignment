@@ -51,14 +51,14 @@ namespace TravelPal.Pages
 
                     ListViewItem listViewItem = new ListViewItem();
                     listViewItem.Tag = travel;
-                    listViewItem.Content = "Destination - " + travel.Countries.ToString() + " - " + travel.GetType().Name;
+                    listViewItem.Content = "Destination  -  " + travel.Countries.ToString() + "  |  " + travel.GetType().Name;
                     lstTravelList.Items.Add(listViewItem);
                 }
                 else if (UserManager.SignedInUser is Admin)
                 {
                     ListViewItem listViewItem = new ListViewItem();
                     listViewItem.Tag = travel;
-                    listViewItem.Content = "Destination - " + travel.Countries.ToString() + " - " + travel.GetType().Name + " - " + travel.OwnedUser.Username;
+                    listViewItem.Content = "Destination  -  " + travel.Countries.ToString() + "  |  " + travel.GetType().Name + "  -  " + travel.OwnedUser.Username;
                     lstTravelList.Items.Add(listViewItem);
                 }
 

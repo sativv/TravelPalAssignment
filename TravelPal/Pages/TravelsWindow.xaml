@@ -33,6 +33,6 @@
         <Button Width="125" Height="50" Grid.Column="4" Grid.Row="4" Background="#F5FFFA" Content="Remove" Foreground="#7B68EE" FontWeight="SemiBold" FontSize="20" Name="btnRemove" Click="btnRemove_Click"/>
         
 
-        <ListView Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="3" Name="lstTravelList"/>
+        <ListView Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="3" Name="lstTravelList" FontWeight="Bold" FontFamily="arial" FontSize="14"/>
     </Grid>
 </Window>

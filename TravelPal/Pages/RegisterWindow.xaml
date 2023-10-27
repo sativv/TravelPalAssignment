@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TravelPal.Pages"
         mc:Ignorable="d"
-     Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="#7B68EE">
+     Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="#7B68EE" FontFamily="Arial">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width=" 20"/>
@@ -24,15 +24,15 @@
             <RowDefinition/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
-
-        <Label Content="TravelPal Registration" FontSize="36" FontWeight="UltraBold" Foreground="#F5FFFA" FontFamily="arial" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" HorizontalAlignment="center" />
+        <Label Content="Country of Origin" FontSize="24" FontWeight="UltraBold" Foreground="#F5FFFA" FontFamily="Arial" Grid.Row="4" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.ColumnSpan="2" />
+        <Label Content="TravelPal Registration" FontSize="36" FontWeight="UltraBold" Foreground="#F5FFFA"  Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" HorizontalAlignment="center" FontFamily="Arial"/>
         <Label Content="Username" FontSize="24" FontWeight="UltraBold" Foreground="#F5FFFA" FontFamily="arial" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="center" />
         <Label Content="Password" FontSize="24" FontWeight="UltraBold" Foreground="#F5FFFA" FontFamily="arial" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="center" />
 
         <TextBox Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Background="#F5FFFA" FontWeight="SemiBold" FontSize="20" Height="45" Margin="20 0 20 0" VerticalAlignment="Bottom" Name="txtUsername"/>
         <PasswordBox Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Background="#F5FFFA" FontWeight="SemiBold" FontSize="20" Height="45" Margin="20 0 20 0" VerticalAlignment="Bottom" Name="txtPassword"/>
 
-        <ComboBox Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Width="100" Height="50" Name="cbCountry" />
-        <Button Name="btnRegister" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="5" Width=" 150" Height="50" Content="Register" FontWeight="Bold" FontSize="24" Background="#F5FFFA" Click="btnRegister_Click"/>
+        <ComboBox Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" Width="100" Height="50" Name="cbCountry" HorizontalAlignment="Right"/>
+        <Button Name="btnRegister" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="5" Width=" 150" Height="50" Content="Register" FontWeight="Bold" FontSize="24" Background="#F5FFFA" Click="btnRegister_Click" Foreground="#7B68EE"/>
     </Grid>
 </Window>
