@@ -5,35 +5,140 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TravelPal.Pages"
         mc:Ignorable="d"
-        Title="TravelsWindow" Height="450" Width="450" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="#2c3e50">
+        Title="TravelsWindow"
+        Height="450"
+        Width="450"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Background="#2c3e50">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="150" />
             <ColumnDefinition />
-            <ColumnDefinition Width="20"/>
+            <ColumnDefinition />
+            <ColumnDefinition Width="20" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
+            <RowDefinition Height="20" />
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
-            <RowDefinition Height="20"/>
+            <RowDefinition Height="20" />
         </Grid.RowDefinitions>
 
 
-        <Label Content="Travel" FontSize="24" FontWeight="UltraBold" Foreground="#F5FFFA" FontFamily="Arial" Grid.Row="1" Grid.Column="0"  HorizontalAlignment="left" VerticalAlignment="Top"  Margin="14 0 0 0"/>
-        <Label Content="Pal" FontSize="24" FontWeight="UltraBold" Foreground="#7B68EE" FontFamily="Arial" Grid.Row="1" Grid.Column="0"  HorizontalAlignment="Right" VerticalAlignment="top" Margin="0 0 5 0"/>
-        <Label Name="lblUsername" FontSize="20" FontWeight="Bold" Foreground="#F5FFFA" Grid.Column="0" Grid.Row="1" Content="username" VerticalAlignment="Bottom" Margin="15 0 0 35"/>
+        <Label Content="Travel"
+               FontSize="24"
+               FontWeight="UltraBold"
+               Foreground="#F5FFFA"
+               FontFamily="Arial"
+               Grid.Row="1"
+               Grid.Column="0"
+               HorizontalAlignment="left"
+               VerticalAlignment="Top"
+               Margin="14 0 0 0" />
+        <Label Content="Pal"
+               FontSize="24"
+               FontWeight="UltraBold"
+               Foreground="#7B68EE"
+               FontFamily="Arial"
+               Grid.Row="1"
+               Grid.Column="0"
+               HorizontalAlignment="Right"
+               VerticalAlignment="top"
+               Margin="0 0 5 0" />
+        <Label Name="lblUsername"
+               FontSize="20"
+               FontWeight="Bold"
+               Foreground="#F5FFFA"
+               Grid.Column="0"
+               Grid.Row="1"
+               Content="username"
+               VerticalAlignment="Bottom"
+               Margin="15 0 0 35" />
 
-        <Button Width="125" Height="40" Grid.Column="0" Grid.Row="2" VerticalAlignment="bottom" Margin="0 0 0 10" Background="Transparent" Content="New Trip" Foreground="#F5FFFA" FontWeight="SemiBold" FontSize="20" Name="btnAddTravel" Click="btnAddTravel_Click" BorderBrush="#F5FFFA" />
-        <Button Width="80" Height="40" Grid.Column="0" Grid.Row="4"  Content="Need Help?" Foreground="#F5FFFA" FontWeight="SemiBold" FontSize="14" HorizontalAlignment="right" VerticalAlignment="bottom"  Background="Transparent" Name="btnHelp" Click="btnHelp_Click" BorderThickness="0"/>
-        <Button Width="80" Height="40" Grid.Row="4"  Content="Sign Out" Foreground="Red" FontWeight="SemiBold" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Bottom" Background="Transparent" Name="btnSignOut" Click="btnSignOut_Click" BorderThickness="0" Margin="-1,0,0,0"/>
-        <Button Width="125" Height="40" Grid.Column="0" Grid.Row="3" VerticalAlignment="top" Background="Transparent" Content="Details" Foreground="#F5FFFA" FontWeight="SemiBold" FontSize="20" Name="btnDetails"  Click="btnDetails_Click"  BorderBrush="#F5FFFA"/>
-        <Button Width="125" Height="40" Grid.Column="0" Grid.Row="3" VerticalAlignment="bottom"  Margin="0 2" Background="Transparent" Content="Remove" Foreground="#F5FFFA  " FontWeight="SemiBold" FontSize="20" Name="btnRemove" Click="btnRemove_Click" BorderBrush="#F5FFFA"/>
+        <Button Width="125"
+                Height="40"
+                Grid.Column="0"
+                Grid.Row="2"
+                VerticalAlignment="bottom"
+                Margin="0 0 0 10"
+                Background="Transparent"
+                Content="New Trip"
+                Foreground="#F5FFFA"
+                FontWeight="SemiBold"
+                FontSize="20"
+                Name="btnAddTravel"
+                Click="btnAddTravel_Click"
+                BorderBrush="#F5FFFA" />
+        <Button Width="80"
+                Height="40"
+                Grid.Column="0"
+                Grid.Row="4"
+                Content="Need Help?"
+                Foreground="#F5FFFA"
+                FontWeight="SemiBold"
+                FontSize="14"
+                HorizontalAlignment="right"
+                VerticalAlignment="bottom"
+                Background="Transparent"
+                Name="btnHelp"
+                Click="btnHelp_Click"
+                BorderThickness="0" />
+        <Button Width="80"
+                Height="40"
+                Grid.Row="4"
+                Content="Sign Out"
+                Foreground="Red"
+                FontWeight="SemiBold"
+                FontSize="14"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                Background="Transparent"
+                Name="btnSignOut"
+                Click="btnSignOut_Click"
+                BorderThickness="0"
+                Margin="-1,0,0,0" />
+        <Button Width="125"
+                Height="40"
+                Grid.Column="0"
+                Grid.Row="3"
+                VerticalAlignment="top"
+                Background="Transparent"
+                Content="Details"
+                Foreground="#F5FFFA"
+                FontWeight="SemiBold"
+                FontSize="20"
+                Name="btnDetails"
+                Click="btnDetails_Click"
+                BorderBrush="#F5FFFA" />
+        <Button Width="125"
+                Height="40"
+                Grid.Column="0"
+                Grid.Row="3"
+                VerticalAlignment="bottom"
+                Margin="0 2"
+                Background="Transparent"
+                Content="Remove"
+                Foreground="#F5FFFA  "
+                FontWeight="SemiBold"
+                FontSize="20"
+                Name="btnRemove"
+                Click="btnRemove_Click"
+                BorderBrush="#F5FFFA" />
 
 
-        <ListView Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="3" Name="lstTravelList" FontWeight="Bold" FontFamily="arial" FontSize="14" Background="Transparent" BorderBrush="#F5FFFA" Foreground="#F5FFFA"/>
+        <ListView Grid.Column="1"
+                  Grid.Row="1"
+                  Grid.ColumnSpan="2"
+                  Grid.RowSpan="3"
+                  Name="lstTravelList"
+                  FontWeight="Bold"
+                  FontFamily="arial"
+                  FontSize="14"
+                  Background="Transparent"
+                  BorderBrush="#F5FFFA"
+                  Foreground="#F5FFFA" />
     </Grid>
 </Window>
