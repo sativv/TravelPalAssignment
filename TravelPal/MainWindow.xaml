@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TravelPal"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="350" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="#7B68EE">
+        Title="TravelPal" Height="450" Width="350" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Background="  #2c3e50  ">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width=" 20"/>
@@ -21,14 +21,21 @@
             <RowDefinition/>
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
-        <Label Content="TravelPal" FontSize="42" FontWeight="UltraBold" Foreground="#F5FFFA" FontFamily="Arial" Grid.Row="1" Grid.Column="1"  HorizontalAlignment="center" VerticalAlignment="Center" />
+        <Label Content="Travel" FontSize="42" FontWeight="UltraBold" Foreground="#F5FFFA" FontFamily="Arial" Grid.Row="1" Grid.Column="1"  HorizontalAlignment="left" VerticalAlignment="Center"  Margin="40 0 0 0"/>
+        <Label Content="Pal" FontSize="42" FontWeight="UltraBold" Foreground="#7B68EE" FontFamily="Arial" Grid.Row="1" Grid.Column="1"  HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 46 0"/>
         <Label Content="Username" FontSize="24" FontWeight="UltraBold" Foreground="#F5FFFA" FontFamily="arial" Grid.Row="2" Grid.Column="1"  HorizontalAlignment="center" />
         <Label Content="Password" FontSize="24" FontWeight="UltraBold" Foreground="#F5FFFA" FontFamily="arial" Grid.Row="3" Grid.Column="1"  HorizontalAlignment="center" />
 
-        <TextBox Grid.Row="2" Grid.Column="1" Background="#F5FFFA" FontWeight="SemiBold" FontSize="20" Height="45" Margin="20 0 20 0" VerticalAlignment="Bottom" Name="txtUsername" VerticalContentAlignment="Center"/>
-        <PasswordBox Grid.Row="3" Grid.Column="1"  Background="#F5FFFA" FontWeight="SemiBold" FontSize="20" Height="45" Margin="20 0 20 0" VerticalAlignment="Bottom" Name="txtPassword" VerticalContentAlignment="Center"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Background="Transparent" FontWeight="SemiBold" FontSize="20" Height="45" Margin="20 0 20 0" VerticalAlignment="Bottom" Name="txtUsername" VerticalContentAlignment="Center" BorderBrush="#F5FFFA" Foreground="#F5FFFA"/>
+        <PasswordBox Grid.Row="3" Grid.Column="1"  Background="Transparent" FontWeight="SemiBold" FontSize="20" Height="45" Margin="20 0 20 0" VerticalAlignment="Bottom" Name="txtPassword" VerticalContentAlignment="Center" BorderBrush="#F5FFFA" Foreground="#F5FFFA"/>
 
-        <Button Name="btnLogIn" Grid.Column="1" Grid.Row="4" Width=" 100" Height="40" Content="Log In" FontWeight="Bold" FontSize="24" Background="#F5FFFA" Click="btnLogIn_Click" HorizontalAlignment="Left" Margin="30 0 0 0"  Foreground="#7B68EE"/>
-        <Button Name="btnRegister" Grid.Column="1" Grid.Row="4" Width=" 100" Height="40" Content="Register" FontWeight="Bold" FontSize="24" Background="#F5FFFA" Click="btnRegister_Click" HorizontalAlignment="Right" Margin="0 0 30 0" Foreground="#7B68EE"/>
+
+
+
+
+
+
+        <Button Name="btnLogIn" Grid.Column="1" Grid.Row="4" Width=" 100" Height="40" Content="Log In" FontWeight="Bold" FontSize="20" Background="Transparent" Click="btnLogIn_Click" HorizontalAlignment="Left" Margin="30 0 0 0"  Foreground="#F5FFFA" BorderBrush="#F5FFFA"/>
+        <Button Name="btnRegister" Grid.Column="1" Grid.Row="4" Width=" 100" Height="40" Content="Register" FontWeight="Bold" FontSize="20" Background="Transparent" Click="btnRegister_Click" HorizontalAlignment="Right" Margin="0 0 30 0" Foreground="#F5FFFA" BorderBrush="#F5FFFA"/>
     </Grid>
 </Window>

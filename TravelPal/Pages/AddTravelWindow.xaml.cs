@@ -204,6 +204,12 @@ namespace TravelPal.Pages
 
         private void btnAddItem_Click(object sender, RoutedEventArgs e)
         {
+
+            if (txtNewItem.Text == "")
+            {
+                MessageBox.Show("Please enter the items name", "WARNING!");
+                return;
+            }
             string newItem = txtNewItem.Text;
             IPackingListItem packingListItem = null;
             bool isRequired = false;

@@ -31,6 +31,8 @@ namespace TravelPal.Pages
             {
                 Vacation vacation = (Vacation)travel;
                 checkAllInclusive.IsChecked = vacation.AllInclusive;
+                checkAllInclusive.Visibility = Visibility.Visible;
+                lblAllInclusive.Visibility = Visibility.Visible;
             }
 
 
@@ -42,6 +44,7 @@ namespace TravelPal.Pages
                 WorkTrip workTrip = (WorkTrip)travel;
                 txtMeetingDetails.Text = workTrip.MeetingDetails.ToString();
             }
+
         }
 
         private void btnReturn_Click(object sender, RoutedEventArgs e)
