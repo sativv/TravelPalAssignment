@@ -35,7 +35,7 @@
 
 
 
-        <Button Name="btnLogIn" Grid.Column="1" Grid.Row="4" Width=" 100" Height="40" Content="Log In" FontWeight="Bold" FontSize="20" Background="Transparent" Click="btnLogIn_Click" HorizontalAlignment="Left" Margin="30 0 0 0"  Foreground="#F5FFFA" BorderBrush="#F5FFFA"/>
-        <Button Name="btnRegister" Grid.Column="1" Grid.Row="4" Width=" 100" Height="40" Content="Register" FontWeight="Bold" FontSize="20" Background="Transparent" Click="btnRegister_Click" HorizontalAlignment="Right" Margin="0 0 30 0" Foreground="#F5FFFA" BorderBrush="#F5FFFA"/>
+        <Button Name="btnLogIn" Grid.Column="1" Grid.Row="4" Width=" 100" Height="40" Content="Log In" FontWeight="Bold" FontSize="20" Background="Transparent" Click="btnLogIn_Click" HorizontalAlignment="Left" Margin="20 0 0 0"  Foreground="#F5FFFA" BorderBrush="#F5FFFA"/>
+        <Button Name="btnRegister" Grid.Column="1" Grid.Row="4" Width=" 100" Height="40" Content="Register" FontWeight="Bold" FontSize="20" Background="Transparent" Click="btnRegister_Click" HorizontalAlignment="Right" Margin="0 0 20 0" Foreground="#F5FFFA" BorderBrush="#F5FFFA"/>
     </Grid>
 </Window>
