@@ -30,7 +30,7 @@
         <Label
             Grid.Row="1"
             Grid.Column="1"
-            Margin="40,0,0,0"
+            Margin="25,0,0,0"
             HorizontalAlignment="left"
             VerticalAlignment="Center"
             Content="Travel"

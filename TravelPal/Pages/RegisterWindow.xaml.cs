@@ -67,5 +67,11 @@ namespace TravelPal.Pages
             }
         }
 
+        private void btnReturn_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new();
+            mainWindow.Show();
+            Close();
+        }
     }
 }

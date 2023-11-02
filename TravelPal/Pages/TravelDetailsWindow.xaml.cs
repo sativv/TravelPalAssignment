@@ -64,6 +64,8 @@ namespace TravelPal.Pages
                 lstPackingList.Items.Add(packingListItem);
             }
         }
+
+
     }
 
 }

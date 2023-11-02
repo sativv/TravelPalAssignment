@@ -21,7 +21,9 @@ namespace TravelPal.Interfaces
         public string Password { get; set; }
         public Country Location { get; set; }
 
-        public List<Travel> userTravels { get; set; }
+
+        // went for a different approach by adding an OwnedUser property on the trips instead
+        //public List<Travel> UserSpecificTravels { get; set; }
 
         public User(string username, string password, Country location)
         {

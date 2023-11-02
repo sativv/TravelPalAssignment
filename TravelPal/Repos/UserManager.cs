@@ -7,7 +7,7 @@ namespace TravelPal.Repos
 {
     public static class UserManager
     {
-        public static List<IUser> Users { get; set; } = new List<IUser>() { new Admin("admin", "password"), new User("user", "password", Country.Thailand) };
+        public static List<IUser> Users { get; set; } = new List<IUser>() { new Admin("admin", "password"), new User("user", "password", Country.Sweden) };
         public static IUser? SignedInUser { get; set; }
 
 
@@ -24,10 +24,10 @@ namespace TravelPal.Repos
 
         }
 
-        public static void RemoveUser(IUser user)
-        {
+        //public static void RemoveUser(IUser user)
+        //{
 
-        }
+        //}
 
         public static bool UpdateUsername(IUser user, string username)
         {
