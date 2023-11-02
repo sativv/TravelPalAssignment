@@ -1,5 +1,8 @@
-﻿using System.Windows;
+﻿using System;
+using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
+using TravelPal.Enums;
 using TravelPal.Interfaces;
 using TravelPal.Models;
 using TravelPal.Repos;
@@ -11,6 +14,7 @@ namespace TravelPal.Pages
     /// </summary>
     public partial class TravelDetailsWindow : Window
     {
+        List<string> travelSubclasses = new List<string> { "Vacation", "Worktrip" };
 
         Travel currentTravel { get; set; }
 
@@ -19,13 +23,21 @@ namespace TravelPal.Pages
             currentTravel = travel;
             InitializeComponent();
             FillList();
+            FillComboBoxes();
 
 
-            // figure out why this does not work
             txtCity.Text = travel.Destination.ToString();
             txtTravellersNo.Text = travel.Travellers.ToString();
-            cbCountry.Text = travel.Countries.ToString();
-            cbTripType.Text = travel.GetType().Name;
+            cbCountry.SelectedValue = travel.Countries;
+
+            if (travel is Vacation)
+            {
+                cbTripType.SelectedIndex = 0;
+            }
+            else if (travel is WorkTrip)
+            {
+                cbTripType.SelectedIndex = 1;
+            }
 
             if (travel is Vacation)
             {
@@ -66,6 +78,40 @@ namespace TravelPal.Pages
         }
 
 
+        private void FillComboBoxes()
+        {
+            // fill Combobox with Enum FillComboBox()
+            cbCountry.ItemsSource = Enum.GetValues(typeof(Country));
+            cbTripType.SelectedIndex = -1;
+            cbTripType.ItemsSource = travelSubclasses;
+
+
+
+
+
+        }
+
+
+
+
+
+        //private void btnEdit_Click(object sender, RoutedEventArgs e)
+        //{
+        //    cbTripType.IsEnabled = true;
+        //    cbCountry.IsEnabled = true;
+        //    txtCity.IsEnabled = true;
+        //    txtMeetingDetails.IsEnabled = true;
+        //    txtTravellersNo.IsEnabled = true;
+        //    checkAllInclusive.IsEnabled = true;
+        //    btnEdit.Visibility = Visibility.Hidden;
+        //    btnSave.Visibility = Visibility.Visible;
+
+        //}
+
+        //private void btnSave_Click(object sender, RoutedEventArgs e)
+        //{
+
+        //}
     }
 
 }

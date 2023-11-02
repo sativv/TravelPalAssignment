@@ -100,5 +100,7 @@ namespace TravelPal.Pages
         {
             MessageBox.Show("Select a trip in the list on the right and press Details in order to view all of the trip details, or press Remove to remove the selected trip. You can also press Add Travel to create a new trip. Press Sign Out to go back to the login screen");
         }
+
+
     }
 }
