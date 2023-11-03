@@ -20,7 +20,10 @@ namespace TravelPal.Pages
 
 
 
-
+            if (user is Admin)
+            {
+                btnAddTravel.Visibility = Visibility.Hidden;
+            }
         }
 
         private void btnSignOut_Click(object sender, RoutedEventArgs e)

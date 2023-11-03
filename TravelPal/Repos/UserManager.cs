@@ -24,10 +24,7 @@ namespace TravelPal.Repos
 
         }
 
-        //public static void RemoveUser(IUser user)
-        //{
 
-        //}
 
         public static bool UpdateUsername(IUser user, string username)
         {
